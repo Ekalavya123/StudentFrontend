@@ -1,0 +1,73 @@
+/* ExperiencePage.css */
+
+/* Container styling */
+.experience-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar styling */
+.experience-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience-navbar h5 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Content styling */
+.experience-content {
+    padding: 20px;
+}
+
+.experience-content h6 {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.experience-content h5 {
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.experience-content p {
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .experience-container {
+        padding: 15px;
+    }
+
+    .experience-navbar {
+        padding: 10px;
+    }
+
+    .experience-content {
+        padding: 15px;
+    }
+
+    .experience-navbar h5 {
+        font-size: 1rem;
+    }
+
+    .experience-content h6, 
+    .experience-content h5 {
+        font-size: 0.9rem;
+    }
+}
