@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export default function RequestCard(props) {
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [reload, setReload] = useState(false);
   let authToken = localStorage.getItem('token');
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function RequestCard(props) {
     };
 
     fetchUserDetails();
-  }, [authToken, reload]);
+  }, [authToken]);
 
   const handleProfile = (email) => {
     localStorage.setItem('requestEmail', email);
@@ -56,7 +55,7 @@ export default function RequestCard(props) {
       const data = await response.json();
       if (data.success) {
         alert("Access Ended");
-        setReload(!reload); // trigger re-fetch
+        window.location.reload();
       } else {
         alert("Something Went Wrong Please Try Again Later");
       }
@@ -81,7 +80,7 @@ export default function RequestCard(props) {
       const data = await response.json();
       if (data.success) {
         alert("Request Accepted");
-        setReload(!reload); // trigger re-fetch
+        window.location.reload();
       } else {
         alert("Something Went Wrong Please Try Again Later");
       }
