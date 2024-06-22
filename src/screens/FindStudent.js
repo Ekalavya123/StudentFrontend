@@ -85,7 +85,7 @@ export default function FindStudent() {
                 }
               </div>
             ))
-            : <div>No Such Data Found</div>
+            : <div>Fetching...</div>
         }
       </div>
       <Footer />
