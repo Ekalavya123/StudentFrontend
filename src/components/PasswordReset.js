@@ -9,14 +9,14 @@ export default function PasswordReset() {
         if(credentials.password!=credentials.confirmPassword){alert("confirmPassword is not matching");return;}
         setLoading(1)
         try {
-            await fetch("http://localhost:4000/api/getUserDetails", {
+            await fetch(`${process.env.REACT_APP_BASE_URL}/api/getUserDetails`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({authToken:param.token})}).then(async (res) => {
             let response= await res.json()
             //console.log("res in rest" ,response.data.email)
             if(response.success){
-                await fetch("http://localhost:4000/api/updatePassword", {
+                await fetch(`${process.env.REACT_APP_BASE_URL}/api/updatePassword`, {
                 method: 'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({email:response.data.email,password:credentials.password})

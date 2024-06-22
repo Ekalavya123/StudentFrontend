@@ -14,7 +14,7 @@ export default function Received() {
     }
 
     try {
-      const receivedRequestsResponse = await fetch("http://localhost:4000/api/receivedRequests", {
+      const receivedRequestsResponse = await fetch(`${process.env.REACT_APP_BASE_URL}/api/receivedRequests`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ authToken: authToken })
@@ -28,7 +28,7 @@ export default function Received() {
         return;
       }
 
-      setReceivedRequests(receivedRequestsData.data.recievedData);
+      if(receivedRequestsData.data) setReceivedRequests(receivedRequestsData.data.recievedData);
       
     } catch (error) {
       console.error('Error fetching received requests:', error);

@@ -8,7 +8,7 @@ export default function InfoUpdate() {
     let navigate=useNavigate();
     const handlesubmit=(event)=>{
       event.preventDefault();
-      fetch("http://localhost:4000/api/EditUserData", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/EditUserData`, {
           method: 'POST',
           headers:{
               'Content-Type':'application/json'

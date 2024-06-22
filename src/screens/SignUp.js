@@ -11,7 +11,7 @@ export default function Signup() {
         alert("conform Password is not matching");return;
       }
       setLoading(1)
-      fetch("http://localhost:4000/api/createuser", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/createuser`, {
           method: 'POST',
           headers:{
               'Content-Type':'application/json'

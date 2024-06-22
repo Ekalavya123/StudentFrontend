@@ -13,7 +13,7 @@ export default function Sent() {
       return;
     }
     try {
-      const sentRequestsResponse = await fetch("http://localhost:4000/api/sentRequests", {
+      const sentRequestsResponse = await fetch(`${process.env.REACT_APP_BASE_URL}/api/sentRequests`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ authToken: authToken})

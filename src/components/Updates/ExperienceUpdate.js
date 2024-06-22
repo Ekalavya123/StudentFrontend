@@ -12,7 +12,7 @@ export default function ExperienceUpdate() {
     let [Skills_data,setSkills]=useState([])
     const [user,setUser]=useState("")
     const fetchUser = async () => {
-      await fetch("http://localhost:4000/api/getUserDetails", {
+      await fetch(`${process.env.REACT_APP_BASE_URL}/api/getUserDetails`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ export default function ExperienceUpdate() {
     
          
     const fetchSkills=async ()=>{
-      await fetch("http://localhost:4000/api/getSkills", {
+      await fetch(`${process.env.REACT_APP_BASE_URL}/api/getSkills`, {
               // credentials: 'include',
               // Origin:"http://localhost:3000/login",
               method: 'GET',
@@ -47,7 +47,7 @@ export default function ExperienceUpdate() {
       setData({...data,[event.target.name]:event.target.value})
     }
     const handleAdd=async ()=>{
-      await fetch("http://localhost:4000/api/AddSkills", {
+      await fetch(`${process.env.REACT_APP_BASE_URL}/api/AddSkills`, {
           // credentials: 'include',
           // Origin:"http://localhost:3000/login",
           method: 'POST',
@@ -72,7 +72,7 @@ export default function ExperienceUpdate() {
         
       }
     const handleExperience=async ()=>{
-      let response = await fetch("http://localhost:4000/api/Experience", {
+      let response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/Experience`, {
           // credentials: 'include',
           // Origin:"http://localhost:3000/login",
           method: 'POST',

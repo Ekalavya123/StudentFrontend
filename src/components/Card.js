@@ -7,13 +7,13 @@ export default function Card(props) {
   let authToken=localStorage.getItem('token');
   const fetchUser = async () => {
     if(localStorage.getItem("token")){
-    await fetch("http://localhost:4000/api/getUserDetails", {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/api/getUserDetails`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body:JSON.stringify({authToken:authToken})
     }).then(async (res) => {
       let response= await res.json();    
-    await fetch("http://localhost:4000/api/Requests", {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/api/Requests`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -8,7 +8,7 @@ export default function Verification() {
     useEffect(() => {
         const verify = async () => {
             try {
-                const res = await fetch("http://localhost:4000/api/getUserDetails", {
+                const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/getUserDetails`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ authToken: params.token })
@@ -16,7 +16,7 @@ export default function Verification() {
                 
                 const response = await res.json();
                 if (response.success) {
-                    const verificationRes = await fetch("http://localhost:4000/api/verification", {
+                    const verificationRes = await fetch(`${process.env.REACT_APP_BASE_URL}/api/verification`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ email: response.data.email })

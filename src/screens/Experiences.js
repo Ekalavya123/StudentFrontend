@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import Card from '../components/Card'
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function Experiences() {
   const [search, setSearch] = useState("");
   const [experience, setExperience] = useState([]);
-
+  console.log(process.env.REACT_APP_BASE_URL)
   const fetchExperience = async () => {
-    await fetch("http://localhost:4000/api/getExperiences", {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/api/getExperiences`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }
     }).then(async (res) => {
       let response = await res.json();
-      setExperience(response);
+      if(response)setExperience(response);
     });
-  }
+  };
 
   useEffect(() => {
     fetchExperience();
@@ -58,10 +58,10 @@ export default function Experiences() {
                               profileExp={0}
                             />
                           </div>
-                        )
+                        );
                       })
                     : <div className='col-12'>No Such Data Found</div>
-                )
+                );
               })
               : <div className='col-12'>Fetching...</div>
           }

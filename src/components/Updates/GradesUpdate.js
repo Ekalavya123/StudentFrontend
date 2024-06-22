@@ -10,7 +10,7 @@ export default function GradesUpdate() {
     const handleTable=async ()=>{
     //console.log(cpi_data)
     //console.log(spi_data)
-    await fetch("http://localhost:4000/api/addGrades", {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/api/addGrades`, {
         // credentials: 'include',
         // Origin:"http://localhost:3000/login",
         method: 'POST',

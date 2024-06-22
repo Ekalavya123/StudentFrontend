@@ -16,9 +16,7 @@ export default function Cpi() {
   const [spi,setSpi]=useState(null);
   const fetchUserGrades= async () => {
       
-    await fetch(`http://localhost:4000/api/getGrades/${authToken}`, {
-        // credentials: 'include',
-        // Origin:"http://localhost:3000/login",
+    await fetch(`${process.env.REACT_APP_BASE_URL}/api/getGrades/${authToken}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

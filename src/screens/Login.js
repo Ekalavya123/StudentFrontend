@@ -12,7 +12,7 @@ export default function Login() {
     try {
       setLoading(1)
       if(forgot){
-        fetch("http://localhost:4000/api/forgotPassword", {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/forgotPassword`, {
             method: 'POST',
             headers:{'Content-Type':'application/json'},
               body:JSON.stringify({email:credentials.email})
@@ -22,7 +22,7 @@ export default function Login() {
         })
       }
       else{
-        fetch("http://localhost:4000/api/loginuser", {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/loginuser`, {
             method: 'POST',
             headers:{'Content-Type':'application/json'},
               body:JSON.stringify({email:credentials.email,password:credentials.password})
